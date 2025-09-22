@@ -43,11 +43,11 @@ void check_colours()
 {
     for(int i =0; i < colours_to_guess.size(); i++)
     {
-        if(colours_to_guess.at(i) == player_colours.at(i))
+        if(player_colours.at(i) == colours_to_guess.at(i))
         {
             num_black_arrows = num_black_arrows+1;
-            cout << "Correct colour and placement: " << colours_to_guess.at(i) << " " << player_colours.at(i) << "\n";
-            player_colours.at(i) = "";
+            //cout << "Correct colour and placement: " << colours_to_guess.at(i) << " " << player_colours.at(i) << "\n";
+            //player_colours.at(i) = "";
         }
         
     }
@@ -58,8 +58,8 @@ void check_colours()
             if((player_colours.at(i) == colours_to_guess.at(j)) && (i!=j))
             {
                 num_white_arrows = num_white_arrows + 1;
-                cout << colours_to_guess.at(j) << " " << player_colours.at(i) << "\n";
-                player_colours.at(i) = "";
+                //cout << colours_to_guess.at(j) << " " << player_colours.at(i) << "\n";
+                //player_colours.at(i) = "";
             }
         }
         
@@ -95,6 +95,17 @@ void input_colours() //This function is for receiving the input colurs from the 
 {
     string colour_string;
     string single_colours;
+    for(int i = 0; i<player_colours.size(); i++)
+    {
+        player_colours.pop_back();
+    }
+    cout << "List of possible colours: ";
+    for (int i = 0; i < allowed_colours.size(); i++)
+    {
+        cout << allowed_colours.at(i) << " ";
+    }
+    cout << "\n";
+    
     cout << "What colours do you think I have chosen?" << "\n";
     while(player_colours.size() < 4)
     {
@@ -145,6 +156,11 @@ void play_game()
     while ((turns < 12) && (num_black_arrows < 4))
     {
         turns = turns+1;
+        for(int i = 0; i<4; i++)
+        {
+            // Find the random number in the range [min, max]
+            cout << colours_to_guess.at(i) << "\n";
+        }
         input_colours();
         check_colours();
         display_results();
