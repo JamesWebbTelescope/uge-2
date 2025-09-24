@@ -17,9 +17,14 @@ void set_colours()
     for(int i = 0; i<4; i++)
     {
         // Find the random number in the range [min, max]
-        int rd_colour = rand() % (allowed_colours.size() - 1);
+        int min = 0;
+        int max = allowed_colours.size()-1;
+        random_device rd;
+        mt19937 gen(rd());
+        uniform_int_distribution<> distrib(min, max);
+        int rd_colour = distrib(gen);
         colours_to_guess.push_back(allowed_colours.at(rd_colour));
-        cout << colours_to_guess.at(i) << "\n";
+        //cout << colours_to_guess.at(i) << "\n";
     }
 }
 
@@ -41,13 +46,16 @@ void is_valid_colour(string input_colour)
 
 void check_colours()
 {
-    for(int i =0; i < colours_to_guess.size(); i++)
+    for(int i =0; i < player_colours.size(); i++)
     {
-        if(player_colours.at(i) == colours_to_guess.at(i))
+        for (int j = 0; j < colours_to_guess.size(); j++)
         {
-            num_black_arrows = num_black_arrows+1;
-            //cout << "Correct colour and placement: " << colours_to_guess.at(i) << " " << player_colours.at(i) << "\n";
-            //player_colours.at(i) = "";
+            if((player_colours.at(i) == colours_to_guess.at(j)) && (i==j)) //If both the color and the placement is correct
+            {
+                num_black_arrows = num_black_arrows+1;
+                //cout << "Correct colour and placement: " << colours_to_guess.at(i) << " " << player_colours.at(i) << "\n";
+                player_colours.at(i) = "";
+            }
         }
         
     }
@@ -55,11 +63,11 @@ void check_colours()
     {
         for (int j = 0; j < colours_to_guess.size(); j++)
         {
-            if((player_colours.at(i) == colours_to_guess.at(j)) && (i!=j))
+            if((player_colours.at(i) == colours_to_guess.at(j)) && (i!=j)) //If the color is correct, but the placement isn't
             {
                 num_white_arrows = num_white_arrows + 1;
                 //cout << colours_to_guess.at(j) << " " << player_colours.at(i) << "\n";
-                //player_colours.at(i) = "";
+                player_colours.at(i) = "";
             }
         }
         
@@ -95,10 +103,6 @@ void input_colours() //This function is for receiving the input colurs from the 
 {
     string colour_string;
     string single_colours;
-    for(int i = 0; i<player_colours.size(); i++)
-    {
-        player_colours.pop_back();
-    }
     cout << "List of possible colours: ";
     for (int i = 0; i < allowed_colours.size(); i++)
     {
@@ -131,6 +135,7 @@ void input_colours() //This function is for receiving the input colurs from the 
         single_colours = colour_string;
         add_colour_to_player_list(single_colours);
     }
+    
 }
 
 void display_results()
@@ -143,7 +148,7 @@ void reset_game()
 {
     num_black_arrows = 0;
     num_white_arrows = 0;
-    for(int i = 0; i<player_colours.size(); i++)
+    while (player_colours.empty() == 0)
     {
         player_colours.pop_back();
     }
@@ -156,11 +161,6 @@ void play_game()
     while ((turns < 12) && (num_black_arrows < 4))
     {
         turns = turns+1;
-        for(int i = 0; i<4; i++)
-        {
-            // Find the random number in the range [min, max]
-            cout << colours_to_guess.at(i) << "\n";
-        }
         input_colours();
         check_colours();
         display_results();
