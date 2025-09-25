@@ -2,6 +2,7 @@
 #include <random>
 #include <vector>
 #include <string>
+#include <limits>
 
 using namespace std;
 
@@ -151,6 +152,7 @@ void input_colours() //This function is for receiving the input colurs from the 
         }
         single_colours = colour_string;
         add_colour_to_player_list(single_colours);
+        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); //Clear the input stream buffer after the colours have been given and verified.
     }
     
 }
