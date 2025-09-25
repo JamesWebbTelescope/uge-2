@@ -5,12 +5,12 @@
 
 using namespace std;
 
-vector<string> allowed_colours = {"red", "green", "yellow", "blue", "purple", "orange", "white", "black"};
-vector<string> colours_to_guess;
-vector<string> player_colours;
-bool color_valid = 0;
-int num_black_arrows = 0;
-int num_white_arrows = 0;
+vector<string> allowed_colours = {"red", "green", "yellow", "blue", "purple", "orange", "white", "black"}; //The list of colours the player can choose from
+vector<string> colours_to_guess; //The list of colours chosen by the computer.
+vector<string> player_colours; //The colours chosen by the player. This list is reset after eaach turn.
+bool color_valid = 0; //Flag used to indicate whether the colors the player gives are valid or not.
+int num_black_arrows = 0; //The number of places where the player gets both colour and placement right.
+int num_white_arrows = 0; //The number of correct colours, but where the placement is wrong.
 
 void set_colours() //This function is where the computer decides which colours to use.
 {
@@ -19,7 +19,6 @@ void set_colours() //This function is where the computer decides which colours t
         /* The function uses a random number generator going from index 0 to the highest possible index
         to pick four colours for the player to guess
          */
-        // Find the random number in the range [min, max]
         int min = 0;
         int max = allowed_colours.size()-1;
         random_device rd;
