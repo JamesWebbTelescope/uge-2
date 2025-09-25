@@ -12,10 +12,13 @@ bool color_valid = 0;
 int num_black_arrows = 0;
 int num_white_arrows = 0;
 
-void set_colours()
+void set_colours() //This function is where the computer decides which colours to use.
 {
     for(int i = 0; i<4; i++)
     {
+        /* The function uses a random number generator going from index 0 to the highest possible index
+        to pick four colours for the player to guess
+         */
         // Find the random number in the range [min, max]
         int min = 0;
         int max = allowed_colours.size()-1;
@@ -24,12 +27,17 @@ void set_colours()
         uniform_int_distribution<> distrib(min, max);
         int rd_colour = distrib(gen);
         colours_to_guess.push_back(allowed_colours.at(rd_colour));
-        //cout << colours_to_guess.at(i) << "\n";
     }
 }
 
 void is_valid_colour(string input_colour)
 {
+    /*
+    This function checks whether the colour inputted by the player is a valid colour.
+    It uses the color_valid flag to indicate whether it is or isn't an allowed colour.
+    If it is allowed, color_valid = 1.
+    If it is not, color_valid = 0.
+    */
     for(int i = 0; i < allowed_colours.size(); i++)
     {
         if (input_colour == allowed_colours.at(i))
@@ -46,6 +54,16 @@ void is_valid_colour(string input_colour)
 
 void check_colours()
 {
+    /*
+    This is where the game tries to match the player's inputs to the computer's chosen colours.
+    First, it goes through the entire vector of player colors to see whether they match the computer's colours at the given index.
+    If they do match, the number of black arrows is incremented by 1 and the player colour is removed.
+    We remove it to avoid the same colour being matched more than once.
+    Next, the game goes through the vector of player colours again, this time to see whether the colour matches any of the computer's colours,
+    NOT at the same index.
+    If there is a match, the number of white arrows is incremented by 1.
+    Similarly, if there is a match, the player colour is removed to avoid it being matched more than once.
+    */
     for(int i =0; i < player_colours.size(); i++)
     {
         for (int j = 0; j < colours_to_guess.size(); j++)
@@ -53,7 +71,6 @@ void check_colours()
             if((player_colours.at(i) == colours_to_guess.at(j)) && (i==j)) //If both the color and the placement is correct
             {
                 num_black_arrows = num_black_arrows+1;
-                //cout << "Correct colour and placement: " << colours_to_guess.at(i) << " " << player_colours.at(i) << "\n";
                 player_colours.at(i) = "";
             }
         }
@@ -66,7 +83,6 @@ void check_colours()
             if((player_colours.at(i) == colours_to_guess.at(j)) && (i!=j)) //If the color is correct, but the placement isn't
             {
                 num_white_arrows = num_white_arrows + 1;
-                //cout << colours_to_guess.at(j) << " " << player_colours.at(i) << "\n";
                 player_colours.at(i) = "";
             }
         }
@@ -76,6 +92,10 @@ void check_colours()
 
 void add_colour_to_player_list(string single_colours)
 {
+    /*
+    This function is where the game takes single colours and check whether they're allowed colours.
+    If not, it keeps prompting the player to give a valid colour until it gets a valid colour.
+    */
     string new_colour;
     is_valid_colour(single_colours);
     if(color_valid == 1)
@@ -101,6 +121,11 @@ void add_colour_to_player_list(string single_colours)
 
 void input_colours() //This function is for receiving the input colurs from the player
 {
+    /*
+    What happens in this function is that first of all, it prints out the list of allowed colours for the game.
+    It then prompts the user to give a set of four colours as a space-separated list.
+    
+    */
     string colour_string;
     string single_colours;
     cout << "List of possible colours: ";
@@ -114,7 +139,6 @@ void input_colours() //This function is for receiving the input colurs from the 
     while(player_colours.size() < 4)
     {
         getline(cin, colour_string);
-        //cout << "Colours: " << colour_string << "\n";
         string del = " "; 
         auto pos = colour_string.find(del);
 
@@ -122,14 +146,8 @@ void input_colours() //This function is for receiving the input colurs from the 
         {
             single_colours = colour_string.substr(0, pos);
             add_colour_to_player_list(single_colours);
-            //cout << single_colours << "\n";
-
-            // Erase the extracted part from the
-      	    // original string
             colour_string.erase(0, pos + del.length());
 
-            // Find the next occurrence of the
-      	    // delimiter
             pos = colour_string.find(del);
         }
         single_colours = colour_string;
