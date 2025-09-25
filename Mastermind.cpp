@@ -188,6 +188,9 @@ void play_game()
     After that, the game checks how many colours are correct and in the correct place.
     For each correct colour and placement, the player gets one black arrow.
     Then the game checks for how many colours are correct, but in the wrong place. For each of these, the player gets one white arrow.
+    If the player guesses all four colours and their placement, he wins the game.
+    But if he spends more than 12 turns on it, he loses.
+    At the end of each turn, the number of black and white arrows are reset, as well as the list of player colours
     */
     set_colours();
     int turns = 0;
