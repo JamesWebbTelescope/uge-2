@@ -124,7 +124,7 @@ void input_colours() //This function is for receiving the input colurs from the 
     /*
     What happens in this function is that first of all, it prints out the list of allowed colours for the game.
     It then prompts the user to give a set of four colours as a space-separated list.
-    
+    The string is received by the game and split into individual colours, that are then checked and added to the list of player colours.
     */
     string colour_string;
     string single_colours;
@@ -158,12 +158,19 @@ void input_colours() //This function is for receiving the input colurs from the 
 
 void display_results()
 {
+    /*
+    This function simply displays the results of the player guesses.
+    */
     cout << "Black arrows: " << num_black_arrows << "\n";
     cout << "White arrows: " << num_white_arrows << "\n";
 }
 
 void reset_game()
 {
+    /*
+    This function resets the number of black and white arrows and clears the player's list of chosen colours,
+    so that it is ready for the next turn.
+    */
     num_black_arrows = 0;
     num_white_arrows = 0;
     while (player_colours.empty() == 0)
@@ -174,6 +181,14 @@ void reset_game()
 
 void play_game()
 {
+    /*
+    This is the function that actually runs the game.
+    First, the computer sets the colours to be guessed.
+    Then, the player gets prompted to give a list of four space-separated colours.
+    After that, the game checks how many colours are correct and in the correct place.
+    For each correct colour and placement, the player gets one black arrow.
+    Then the game checks for how many colours are correct, but in the wrong place. For each of these, the player gets one white arrow.
+    */
     set_colours();
     int turns = 0;
     while ((turns < 12) && (num_black_arrows < 4))
