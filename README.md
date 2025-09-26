@@ -1,3 +1,6 @@
+Mastermind
+This is a simple, text-based version of Mastermind.
+
 Prerequisites:
 In order to run this game, you need to have the C++ Extensions for VS Code installed.
 
