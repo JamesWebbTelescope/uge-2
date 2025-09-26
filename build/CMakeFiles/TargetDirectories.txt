@@ -1,0 +1,4 @@
+C:/Users/SPAC-O-1/Projekter/uge-2/build/CMakeFiles/uge2.dir
+C:/Users/SPAC-O-1/Projekter/uge-2/build/CMakeFiles/PACKAGE.dir
+C:/Users/SPAC-O-1/Projekter/uge-2/build/CMakeFiles/ALL_BUILD.dir
+C:/Users/SPAC-O-1/Projekter/uge-2/build/CMakeFiles/ZERO_CHECK.dir

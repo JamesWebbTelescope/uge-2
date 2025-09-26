@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\SPAC-O-1\Projekter\uge-2\build\CMakeFiles\aee19d4f0fd4604244f1a0abd7c1a527\Continuous.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\SPAC-O-1\Projekter\uge-2\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="C:\Users\SPAC-O-1\Projekter\uge-2\build\CMakeFiles\Continuous" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{4824EA0C-A7A5-3300-B8A3-BB16A43D0E24}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
