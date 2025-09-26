@@ -1,0 +1,3 @@
+C:/Users/SPAC-O-1/Projekter/uge-2/out/build/Visual Studio Build Tools 2022 Release - amd64/CMakeFiles/uge2.dir
+C:/Users/SPAC-O-1/Projekter/uge-2/out/build/Visual Studio Build Tools 2022 Release - amd64/CMakeFiles/ALL_BUILD.dir
+C:/Users/SPAC-O-1/Projekter/uge-2/out/build/Visual Studio Build Tools 2022 Release - amd64/CMakeFiles/ZERO_CHECK.dir

@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\SPAC-O-1\Projekter\uge-2\out\build\Visual Studio Build Tools 2022 Release - amd64\uge2_autogen\mocs_compilation_Debug.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\SPAC-O-1\Projekter\uge-2\mastermind.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\SPAC-O-1\Projekter\uge-2\out\build\Visual Studio Build Tools 2022 Release - amd64\uge2_autogen\mocs_compilation_Release.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\SPAC-O-1\Projekter\uge-2\out\build\Visual Studio Build Tools 2022 Release - amd64\uge2_autogen\mocs_compilation_MinSizeRel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\SPAC-O-1\Projekter\uge-2\out\build\Visual Studio Build Tools 2022 Release - amd64\uge2_autogen\mocs_compilation_RelWithDebInfo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\SPAC-O-1\Projekter\uge-2\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{3E09ABF1-7C02-3D10-BF04-325718ED6900}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

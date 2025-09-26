@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\SPAC-O-1\Projekter\uge-2\out\build\Visual Studio Build Tools 2022 Release - amd64\CMakeFiles\799bec3e6382223fa61ccfa713c3e242\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{4EC28EFF-BA96-3624-9336-A66E8B68806F}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

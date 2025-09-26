@@ -1,0 +1,10 @@
+^C:\USERS\SPAC-O-1\PROJEKTER\UGE-2\OUT\BUILD\VISUAL STUDIO BUILD TOOLS 2022 RELEASE - AMD64\CMAKEFILES\799BEC3E6382223FA61CCFA713C3E242\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/SPAC-O-1/Projekter/uge-2 "-BC:/Users/SPAC-O-1/Projekter/uge-2/out/build/Visual Studio Build Tools 2022 Release - amd64" --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file "C:/Users/SPAC-O-1/Projekter/uge-2/out/build/Visual Studio Build Tools 2022 Release - amd64/uge2.sln"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
